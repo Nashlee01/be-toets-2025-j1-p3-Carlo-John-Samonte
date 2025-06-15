@@ -1,0 +1,141 @@
+/* Make sure body and html fill viewport and have wood texture background */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url('https://www.creativefabrica.com/wp-content/uploads/2022/03/14/Wood-Texture-Graphics-27181894-1-1-580x387.jpg') repeat;
+  background-size: auto;
+  font-family: 'Georgia', serif;
+  color: #4B3621;
+  box-sizing: border-box;
+}
+
+/* Container with cream background and shadow */
+.over-container {
+  background-color: #F3ECE1;
+  max-width: 900px;
+  margin: 3rem auto 5rem auto;
+  padding: 3rem 3rem 4rem 3rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  box-sizing: border-box;
+}
+
+/* Headings */
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #5A4428;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* Two-column layout */
+.intro-content {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Reverse order for second intro */
+.intro-content.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Paragraph style with cream background and subtle shadow */
+.intro-content p {
+  flex: 1;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #5A4428;
+  background-color: #FAF6ED;
+  padding: 1.2rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(90, 60, 20, 0.1);
+  max-width: 48%;
+  box-sizing: border-box;
+}
+
+/* Image style */
+.intro-content img {
+  flex: 1;
+  max-width: 48%;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(90, 60, 20, 0.2);
+  object-fit: cover;
+  height: auto;
+}
+
+/* Mission section */
+.mission-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.mission-section h2 {
+  margin-bottom: 2rem;
+  letter-spacing: 0.03em;
+}
+
+/* Mission items flex container */
+.mission-items {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
+/* Mission item styles */
+.mission-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100px;
+}
+
+.mission-item img {
+  width: 60px;
+  height: 60px;
+  padding: 12px;
+  border: 2.5px solid #5A4428;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+/* Mission item text */
+.mission-item p {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #5A4428;
+  margin: 0;
+  font-family: 'Georgia', serif;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  .intro-content,
+  .intro-content.reverse {
+    flex-direction: column;
+  }
+  .intro-content p,
+  .intro-content img {
+    max-width: 100%;
+    width: 100%;
+  }
+  .mission-items {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .mission-item {
+    width: auto;
+  }
+}

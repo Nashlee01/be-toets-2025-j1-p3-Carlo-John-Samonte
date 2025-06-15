@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Musica - Productdetail</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<header>
+  <nav aria-label="Hoofd navigatie">
+    <ul>
+      <li><a href="index.html">STEIJE'S</a></li>
+      <li><a href="videos.html">Muziek</a></li>
+      <li><a href="index.html#popular-instruments">Instrumenten</a></li>
+      <li><a href="over.html">Over Ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container" role="main" id="product-container">
+
+  <!-- Product details laden via JS -->
+
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <nav aria-label="Sitemap">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="videos.html">Muziek</a></li>
+        <li><a href="index.html#popular-instruments">Instrumenten</a></li>
+        <li><a href="index.html#about">Over Ons</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="social-icons" role="navigation" aria-label="Social media">
+      <a href="#" aria-label="Facebook"><img src="images/facebook.png" alt="Facebook" /></a>
+      <a href="#" aria-label="Twitter"><img src="images/twitter.png" alt="Twitter" /></a>
+      <a href="#" aria-label="Instagram"><img src="images/instagram.png" alt="Instagram" /></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Voorbeeld product data (kan naar JSON extern of database)
+  const products = {
+    'handmade1': {
+      name: 'Handgemaakte Gitaar 1',
+      category: 'Handgemaakt',
+      materials: 'Esdoorn, Mahonie, Ebenhout',
+      specs: '24 fretten, handgesneden top, vintage afwerking',
+      price: '€ 1200',
+      images: [
+        'images/handmade1.png',
+        'images/handmade1-2.png',
+        'images/handmade1-3.png'
+      ],
+      video: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+    },
+    // Andere producten vergelijkbaar toevoegen...
+  };
+
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
+
+  function loadProduct(id) {
+    const product = products[id];
+    if (!product) {
+      document.getElementById('product-container').innerHTML = '<p>Product niet gevonden.</p>';
+      return;
+    }
+    let imagesHTML = product.images.map(img => `<img src="${img}" alt="${product.name}" tabindex="0">`).join('');
+    document.getElementById('product-container').innerHTML = `
+      <h1>${product.name}</h1>
+      <p><strong>Categorie:</strong> ${product.category}</p>
+      <p><strong>Materialen:</strong> ${product.materials}</p>
+      <p><strong>Specificaties:</strong> ${product.specs}</p>
+      <p><strong>Prijs:</strong> ${product.price}</p>
+      <div class="product-gallery">${imagesHTML}</div>
+      <h2>Maakproces video</h2>
+      <iframe src="${product.video}" frameborder="0" allowfullscreen title="Video van ${product.name}"></iframe>
+      <button class="btn" aria-label="Voeg ${product.name} toe aan winkelmand">In winkelmand</button>
+    `;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const productId = getQueryParam('id') || 'handmade1';
+    loadProduct(productId);
+  });
+</script>
+
+</body>
+</html>

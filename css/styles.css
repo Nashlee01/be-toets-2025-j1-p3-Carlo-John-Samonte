@@ -1,0 +1,483 @@
+/* styles.css */
+/* Algemene reset en basis */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body { /* AANPASSING: body en html als flex container voor sticky footer */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: #F5F5F0;
+  color: #5D4037;
+  line-height: 1.5;
+}
+
+body > main.container { /* AANPASSING: main container groeit om ruimte te vullen */
+  flex: 1 0 auto;
+}
+
+/* Titels */
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: #5D4037;
+  margin: 0 0 0.5em 0;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 1.5em;
+}
+
+/* Navigatie */
+
+nav {
+  background: #5D4037;
+  padding: 1rem 2rem;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+nav a {
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #F5F5F0;
+  transition: color 0.3s ease;
+}
+nav a:hover,
+nav a:focus {
+  color: #C88A65;
+  outline: none;
+}
+
+/* Container */
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto 0; /* AANPASSING: margin-bottom verwijderd zodat footer niet te ver naar beneden schuift */
+  padding: 0 1rem;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  background-color: #A67C52;
+  color: #F5F5F0;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #C88A65;
+  outline: none;
+}
+
+/* Footer */
+
+footer {
+  background-color: #5D4037;
+  padding: 1.5rem 0;
+  text-align: center;
+  color: #F5F5F0;
+}
+footer nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+footer nav a {
+  color: #F5F5F0;
+  text-decoration: none;
+}
+footer nav a:hover,
+footer nav a:focus {
+  color: #C88A65;
+  outline: none;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 0.7rem;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+.social-icons a:hover,
+.social-icons a:focus {
+  filter: brightness(0) invert(0.7) sepia(1) saturate(5) hue-rotate(80deg);
+  outline: none;
+}
+.social-icons img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+/* Specifieke secties */
+
+/* Hero sectie */
+
+.hero {
+  width: 100%;
+  background-color: #EAD7B7; /* warme houtkleur */
+  padding: 3rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.hero-text {
+  flex: 1 1 300px;
+}
+
+.hero-text h1 {
+  margin-bottom: 0.2em;
+}
+
+.hero-text p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  margin-top: 0;
+  color: #5D4037;
+}
+
+.hero-img {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.hero-img img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(90, 60, 20, 0.2);
+}
+
+
+/* Grid layout */
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.popular-instruments .grid,
+.offers-grid {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.collection-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Instrument cards */
+
+.instrument-card {
+  background: #FFF8F0;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(150, 110, 70, 0.1);
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.instrument-card:hover,
+.instrument-card:focus {
+  background-color: #F0E3CF;
+  box-shadow: 0 0 15px rgba(166, 124, 82, 0.5);
+  outline: none;
+}
+.instrument-card img {
+  max-width: 80%;
+  margin-bottom: 0.5rem;
+}
+.instrument-card p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #5D4037;
+}
+.offers-grid .instrument-card p {
+  font-size: 1.25rem;
+  margin: 0.25rem 0 0 0;
+}
+.offers-grid .instrument-card small {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  color: #5D4037;
+}
+
+/* Form */
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #FFF8F0;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(150, 110, 70, 0.2);
+}
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #5D4037;
+}
+form input, form select, form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #A67C52;
+  border-radius: 6px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #5D4037;
+}
+form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+form button {
+  width: 100%;
+  background-color: #2E7D32;
+  color: #F5F5F0;
+  padding: 0.75rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+form button:hover,
+form button:focus {
+  background-color: #1B4E20;
+  outline: none;
+}
+
+/* Product gallery */
+
+.product-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.product-gallery img {
+  max-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(150, 110, 70, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.product-gallery img:hover,
+.product-gallery img:focus {
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* Video grid */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.video-item iframe {
+  width: 100%;
+  height: 160px;
+  border-radius: 8px;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Full-width woody background section */
+.wood-background {
+  width: 100vw;
+  background: url('https://www.creativefabrica.com/wp-content/uploads/2022/03/14/Wood-Texture-Graphics-27181894-1-1-580x387.jpg') repeat;
+  padding: 4rem 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Content inside woody background section */
+.wood-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #4B3621;
+  font-family: 'Georgia', serif;
+}
+
+.wood-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.wood-content h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 0;
+  color: #5A4428;
+}
+
+/* Intro section styling */
+.intro-content {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.intro-content.reverse {
+  flex-direction: row-reverse;
+}
+
+.intro-content p {
+  flex: 1;
+  background-color: #FAF6ED;
+  padding: 1.2rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(90, 60, 20, 0.1);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #5A4428;
+  max-width: 48%;
+  margin: 0;
+}
+
+.intro-content img {
+  flex: 1;
+  max-width: 48%;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(90, 60, 20, 0.2);
+  object-fit: cover;
+  height: auto;
+}
+
+/* Mission section styling */
+.mission-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.mission-section h2 {
+  margin-bottom: 2rem;
+  letter-spacing: 0.03em;
+}
+
+.mission-items {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.mission-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100px;
+}
+
+.mission-item img {
+  width: 60px;
+  height: 60px;
+  padding: 12px;
+  border: 2.5px solid #5A4428;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.mission-item p {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #5A4428;
+  margin: 0;
+  font-family: 'Georgia', serif;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .intro-content,
+  .intro-content.reverse {
+    flex-direction: column;
+  }
+  .intro-content p,
+  .intro-content img {
+    max-width: 100%;
+    width: 100%;
+  }
+  .mission-items {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .mission-item {
+    width: auto;
+  }
+  
+}
+/* Zorg dat alle afbeeldingen in instrument-cards dezelfde grootte hebben */
+

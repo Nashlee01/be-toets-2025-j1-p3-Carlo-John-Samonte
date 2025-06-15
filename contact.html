@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Musica - Contact</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header>
+  <nav aria-label="Hoofd navigatie">
+    <ul>
+      <li><a href="index.html">STEIJE'S</a></li>
+      <li><a href="videos.html">Muziek</a></li>
+      <li><a href="index.html#popular-instruments">Instrumenten</a></li>
+      <li><a href="over.html">Over Ons</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="container" role="main">
+  <h1>Contact</h1>
+  <form id="contact-form" novalidate>
+    <label for="name">Naam</label>
+    <input type="text" id="name" name="name" required aria-required="true" />
+
+    <label for="email">E-mailadres</label>
+    <input type="email" id="email" name="email" required aria-required="true" />
+
+    <label for="phone">Telefoonnummer</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9+\-\s]{7,15}" aria-describedby="phoneHelp" />
+    <small id="phoneHelp">Vul een geldig telefoonnummer in (optioneel)</small>
+
+    <label for="subject">Onderwerp</label>
+    <select id="subject" name="subject" required aria-required="true">
+      <option value="" disabled selected>Maak een keuze</option>
+      <option value="vraag">Vraag over product</option>
+      <option value="interesse">Interesse in handgemaakt instrument</option>
+      <option value="anders">Anders</option>
+    </select>
+
+    <label for="message">Bericht</label>
+    <textarea id="message" name="message" required aria-required="true"></textarea>
+
+    <button type="submit" class="btn" aria-label="Verzend contactformulier">Verzenden</button>
+  </form>
+  <div id="confirmation" role="alert" style="display:none; margin-top:1rem; font-weight:700; color:#2E7D32;">
+    Bedankt voor uw bericht! We nemen snel contact met u op.
+  </div>
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="social-icons" role="navigation" aria-label="Social media">
+      <a href="#" aria-label="Facebook"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/512px-2021_Facebook_icon.svg.png" alt="Facebook" /></a>
+      <a href="#" aria-label="Twitter"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png" alt="Twitter" /></a>
+      <a href="#" aria-label="Instagram"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s" alt="Instagram" /></a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  const form = document.getElementById('contact-form');
+  const confirmation = document.getElementById('confirmation');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // Simuleer verzenden
+    confirmation.style.display = 'block';
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
